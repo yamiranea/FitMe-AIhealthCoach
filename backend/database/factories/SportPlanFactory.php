@@ -2,22 +2,31 @@
 
 namespace Database\Factories;
 
+use App\Models\SportPlan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\SportPlan>
- */
 class SportPlanFactory extends Factory
 {
     /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = SportPlan::class;
+
+    /**
      * Define the model's default state.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function definition(): array
     {
         return [
-            //
+            'description' => $this->faker->text,
+            'creation_user' => $this->faker->randomNumber(),
+            'updated_user' => $this->faker->randomNumber(),
+            'creation_date' => $this->faker->dateTime,
+            'updated_date' => $this->faker->dateTime,
         ];
     }
 }
