@@ -16,8 +16,6 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('diet_type', 255);
             $table->decimal('current_weight', 5, 2)->nullable();
-            $table->integer('creation_user');
-            $table->integer('updated_user');
             $table->dateTime('creation_date')->nullable();
             $table->dateTime('updated_date')->nullable();
         });

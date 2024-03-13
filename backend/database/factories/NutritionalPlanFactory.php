@@ -19,8 +19,6 @@ class NutritionalPlanFactory extends Factory
         return [
             'description' => $this->faker->text,
             'current_weight' => $this->faker->randomFloat(2, 50, 100),
-            'creation_user' => $this->faker->randomNumber(),
-            'updated_user' => $this->faker->randomNumber(),
             'creation_date' => $this->faker->dateTime,
             'updated_date' => $this->faker->dateTime,
         ];
