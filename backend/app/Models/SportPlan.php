@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class SportPlan extends Model
 {
     use HasFactory;
-
+    public $timestamps = false;
     protected $table = 'sport_plans';
 
     protected $fillable = [

@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
 {
-    Schema::create('sport_plans', function (Blueprint $table) {
+   Schema::create('sport_plans', function (Blueprint $table) {
         $table->id('id_plan');
-        $table->string('plan_name', 255);
-        $table->text('description');
-        $table->string('activity_level', 255);
-        $table->integer('creation_user');
-        $table->integer('updated_user');
-        $table->dateTime('creation_date');
-        $table->dateTime('updated_date');
+        $table->string('plan_name', 255)->nullable();
+        $table->text('description')->nullable();
+        $table->string('activity_level', 255)->nullable();
+        $table->dateTime('creation_date')->nullable();
+        $table->dateTime('updated_date')->nullable();
     });
 }
 

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('nutritional_plans', function (Blueprint $table) {
             $table->id('id_plan');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('diet_type', 255);
-            $table->decimal('current_weight', 5, 2);
+            $table->decimal('current_weight', 5, 2)->nullable();
             $table->integer('creation_user');
             $table->integer('updated_user');
-            $table->dateTime('creation_date');
-            $table->dateTime('updated_date');
+            $table->dateTime('creation_date')->nullable();
+            $table->dateTime('updated_date')->nullable();
         });
     }
 };

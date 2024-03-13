@@ -27,8 +27,8 @@ class UserFactory extends Factory
             'current_weight' => $this->faker->randomFloat(2, 50, 100),
             'height' => $this->faker->numberBetween(150, 200),
             'updated_date' => $this->faker->dateTime,
-            'id_nutritional_plan' => $this->faker->randomNumber(),
-            'id_sport_plan' => $this->faker->randomNumber(),
+            'id_nutritional_plan' => null, 
+            'id_sport_plan' => null, 
         ];
     }
 }

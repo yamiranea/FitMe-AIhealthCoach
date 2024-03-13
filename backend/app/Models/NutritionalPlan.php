@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class NutritionalPlan extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     protected $table = 'nutritional_plans';
 
