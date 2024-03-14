@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class SportActivity extends Model
 {
     use HasFactory;
-    protected $fillable = ['name_activity'];
+    protected $fillable = ['name_activity', 'description'];
 
+    public function tags()
+    {
+    return $this->belongsToMany(SportTag::class, 'sport_activity_tag');
+    }
 }

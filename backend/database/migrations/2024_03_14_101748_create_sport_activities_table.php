@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sport_activities', function (Blueprint $table) {
             $table->id();
             $table->string('name_activity');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

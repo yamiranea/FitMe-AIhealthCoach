@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('nutritional_plans', function (Blueprint $table) {
             $table->id();
             $table->text('name_plan');
+            $table->text('description')->nullable();
         });
     }
 };
