@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('nutritional_tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name_nutritional_tag');
             $table->timestamps();
         });
     }

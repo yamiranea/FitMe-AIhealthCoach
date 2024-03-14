@@ -12,8 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user_nutrition', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        $table->id();
+        $table->unsignedBigInteger('id_user');
+        $table->unsignedBigInteger('id_nutritional_plan');
+        $table->unsignedBigInteger('id_nutrition_tag');
+        $table->date('created_date');
+        $table->date('updated_date');
+        $table->timestamps();
+
+        $table->foreign('id_user')->references('id')->on('users');
+        $table->foreign('id_nutritional_plan')->references('id')->on('nutritional_plans');
+        $table->foreign('id_nutrition_tag')->references('id')->on('nutritional_tags');
         });
     }
 

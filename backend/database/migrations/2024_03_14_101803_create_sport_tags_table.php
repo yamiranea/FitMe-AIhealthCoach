@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('sport_tags', function (Blueprint $table) {
             $table->id();
+            $table->string('name_sport_tag');
             $table->timestamps();
         });
     }

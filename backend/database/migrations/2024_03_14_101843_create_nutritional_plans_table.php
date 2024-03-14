@@ -12,12 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nutritional_plans', function (Blueprint $table) {
-            $table->id('id_plan');
-            $table->text('description')->nullable();
-            $table->string('diet_type', 255);
-            $table->decimal('current_weight', 5, 2)->nullable();
-            $table->dateTime('creation_date')->nullable();
-            $table->dateTime('updated_date')->nullable();
+            $table->id();
+            $table->text('name_plan');
         });
     }
 };
