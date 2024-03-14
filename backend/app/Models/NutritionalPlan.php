@@ -8,22 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class NutritionalPlan extends Model
 {
     use HasFactory;
-    public $timestamps = false;
+    protected $fillable = ['name_plan'];
 
-    protected $table = 'nutritional_plans';
-
-    protected $fillable = [
-        'description',
-        'diet_type',
-        'current_weight',
-        'creation_user',
-        'updated_user',
-        'creation_date',
-        'updated_date',
-    ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_user');
-    }
 }
