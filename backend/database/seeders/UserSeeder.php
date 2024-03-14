@@ -11,13 +11,7 @@ class UserSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
-        $genders = ['Mujer', 'Hombre', 'Prefiero no especificar'];
-
-        foreach ($genders as $gender) {
-        User::factory()->create([
-            'gender' => $gender,
-        ]);
-        }
-    }
+{
+    User::factory(10)->create();
+}
 }
