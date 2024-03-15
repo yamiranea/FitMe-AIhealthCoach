@@ -24,6 +24,6 @@ class UserFactory extends Factory
             'id_gender' => Gender::all()->random()->id,
             'current_weight' => $this->faker->randomFloat(2, 40, 200),
             'height' => $this->faker->randomFloat(2, 1.00, 3.00),
-         ];
+        ];
     }
 }
