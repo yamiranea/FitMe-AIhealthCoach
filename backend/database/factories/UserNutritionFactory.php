@@ -21,7 +21,6 @@ class UserNutritionFactory extends Factory
     {
          return [
         'id_user' => User::factory(),
-        'id_nutritional_plan' => NutritionalPlan::all()->random()->id,
         'id_nutritional_tag' => NutritionalTag::all()->random()->id,
         'created_date' => $this->faker->date(),
         'updated_date' => $this->faker->date(),        

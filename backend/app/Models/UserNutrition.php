@@ -20,8 +20,8 @@ class UserNutrition extends Model
         return $this->belongsTo(NutritionalPlan::class, 'id_nutritional_plan');
     }
 
-    public function nutritionTag()
+    public function nutritionalTag()
     {
-        return $this->belongsTo(NutritionalTag::class, 'id_nutrition_tag');
+        return $this->belongsTo(NutritionalTag::class, 'id_nutritional_tag'); 
     }
 }
