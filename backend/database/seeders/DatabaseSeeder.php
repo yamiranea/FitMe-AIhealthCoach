@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(LevelActivitySeeder::class);
-         $this->call(SportActivitySeeder::class);
+        $this->call(NutritionalPlanSeeder::class);
+        $this->call(SportActivitySeeder::class);
 
     }
 }

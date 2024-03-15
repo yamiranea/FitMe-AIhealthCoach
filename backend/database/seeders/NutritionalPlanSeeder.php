@@ -26,6 +26,9 @@ class NutritionalPlanSeeder extends Seeder
     ['name_plan' => 'Dieta para hipertensos', 'description' => 'Similar a la dieta DASH, se enfoca en reducir la presión arterial alta. Limita el consumo de sal, grasas saturadas y alcohol.', 'name_nutritional_tag' => ['Hipertension', 'Bajo en sodio', 'Salud cardiovascular', 'Frutas', 'Verduras']],
     ['name_plan' => 'Dieta para personas con celiaquía', 'description' => 'Libre de gluten, una proteína que se encuentra en el trigo, la cebada y el centeno. Se basa en el consumo de alimentos naturalmente libres de gluten como frutas, verduras, carnes, pescados, huevos y arroz.', 'name_nutritional_tag' => ['Sin gluten', 'Saludable', 'Variada', 'Autoinmune']],
     ['name_plan' => 'Dieta mediterránea', 'description' => 'Rica en frutas, verduras, cereales integrales, legumbres, frutos secos y aceite de oliva. Se recomienda un consumo moderado de pescado y carne roja, y un bajo consumo de productos lácteos.', 'name_nutritional_tag' => ['Saludable', 'Corazón', 'Antioxidantes', 'Longevidad']],
+    ['name_plan' => 'Dieta paleo', 'description' => 'Basada en la alimentación de los cazadores-recolectores del Paleolítico. Se basa en el consumo de carne, pescado, frutas, verduras, frutos secos y semillas. Se excluyen los cereales, legumbres, productos lácteos y alimentos procesados.', 'name_nutritional_tag' => ['Paleo', 'Ancestral', 'Saludable', 'Proteinas', 'Antiinflamatoria']],
+    ['name_plan' => 'Dieta vegana', 'description' => 'Excluye todos los productos de origen animal, incluyendo carne, pescado, huevos, leche y miel. Se basa en el consumo de frutas, verduras, cereales integrales, legumbres, frutos secos y semillas.', 'name_nutritional_tag' => ['Vegetal', 'Cruelty-Free', 'Ética', 'Saludable', 'Compasión']],
+    ['name_plan' => 'Dieta vegetariana', 'description' => 'Excluye la carne de animales, pero puede incluir pescado, huevos, leche y productos lácteos. Se basa en el consumo de frutas, verduras, cereales integrales, legumbres, frutos secos y semillas.', 'name_nutritional_tag' => ['Vegetal', 'Saludable', 'Variada', 'Flexible']],   
     ];
     foreach ($nutritional_plans as $nutritional_plan) {
     $plan  = NutritionalPlan::create([
@@ -33,7 +36,7 @@ class NutritionalPlanSeeder extends Seeder
         'description' => $nutritional_plan['description'],
     ]);
 
-    foreach ($nutritional_plan['nutritional_plan_tag'] as $tag_name) {
+    foreach ($nutritional_plan['name_nutritional_tag'] as $tag_name) {
         $tag = NutritionalTag::firstOrCreate(['name_nutritional_tag' => $tag_name]);
         $plan->tags()->attach($tag->id);
     }

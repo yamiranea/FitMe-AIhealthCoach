@@ -12,6 +12,6 @@ class NutritionalPlan extends Model
 
     public function tags()
     {
-    return $this->belongsToMany(NutritionalTag::class, 'name_nutritional_tag');
+    return $this->belongsToMany(NutritionalTag::class, 'nutritional_plan_tag');
     }
 }

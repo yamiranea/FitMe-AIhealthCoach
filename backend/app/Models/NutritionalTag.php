@@ -10,4 +10,9 @@ class NutritionalTag extends Model
     use HasFactory;
     protected $fillable = ['name_nutritional_tag'];
 
+     public function plans()
+{
+    return $this->belongsToMany(NutritionalPlan::class, 'nutritional_plan_tag');
+}
+
 }
