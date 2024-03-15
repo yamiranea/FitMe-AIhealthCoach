@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LevelActivitySeeder::class);
         $this->call(NutritionalPlanSeeder::class);
         $this->call(SportActivitySeeder::class);
+        $this->call(GenderSeeder::class);
 
     }
 }
