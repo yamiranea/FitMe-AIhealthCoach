@@ -2,47 +2,89 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserNutrition;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class UserNutritionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        try {
+            $userNutritions = UserNutrition::all();
+            return response()->json($userNutritions);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Something went wrong, please try again later'], 500);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        try {
+            $validated = $request->validate([
+                'id_user' => 'required',
+                'id_nutritional_plan' => 'required',
+                'id_nutritional_tag' => 'required',
+                'created_date' => 'required',
+                'updated_date' => 'required',
+            ]);
+
+            $userNutrition = UserNutrition::create($validated);
+
+            return response()->json($userNutrition, 201);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Something went wrong, please try again later'], 500);
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        try {
+            $userNutrition = UserNutrition::findOrFail($id);
+            return response()->json($userNutrition);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'UserNutrition not found'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Something went wrong, please try again later'], 500);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $userNutrition = UserNutrition::findOrFail($id);
+
+            $validated = $request->validate([
+                'id_user' => 'required',
+                'id_nutritional_plan' => 'required',
+                'id_nutritional_tag' => 'required',
+                'created_date' => 'required',
+                'updated_date' => 'required',
+            ]);
+
+            $userNutrition->fill($validated);
+            $userNutrition->save();
+
+            return response()->json($userNutrition);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'UserNutrition not found'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Something went wrong, please try again later'], 500);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        try {
+            $userNutrition = UserNutrition::findOrFail($id);
+
+            $userNutrition->delete();
+
+            return response()->json(null, 204);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'UserNutrition not found'], 404);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Something went wrong, please try again later'], 500);
+        }
     }
 }
