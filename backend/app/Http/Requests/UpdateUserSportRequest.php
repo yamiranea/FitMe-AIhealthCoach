@@ -22,7 +22,12 @@ class UpdateUserSportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'id_user' => 'sometimes|required|integer',
+            'id_level_activity' => 'sometimes|required|integer',
+            'id_sport_activity' => 'sometimes|required|integer',
+            'id_sport_tag' => 'sometimes|required|integer',
+            'created_date' => 'sometimes|required|date',
+            'updated_date' => 'sometimes|required|date',
         ];
     }
 }
