@@ -6,4 +6,9 @@ use App\Http\Controllers\UserNutritionController;
 
 Route::apiResource('users', UserController::class);
 Route::apiResource('user_sports', UserSportController::class);
-Route::apiResource('user_nutritions', UserNutritionController::class);
+
+Route::get('/user_nutritions', [UserNutritionController::class, 'index']);
+Route::post('/user_nutritions', [UserNutritionController::class, 'store']);
+Route::get('/user_nutritions/{id}', [UserNutritionController::class, 'show']);
+Route::put('/user_nutritions/{id}', [UserNutritionController::class, 'update']);
+Route::delete('/user_nutritions/{id}', [UserNutritionController::class, 'destroy']);
