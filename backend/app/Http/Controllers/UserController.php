@@ -4,10 +4,14 @@
 namespace App\Http\Controllers;
 
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\User;
-
+use App\Models\UserSport;
+use App\Models\LevelActivity;
+use App\Models\SportActivity;
+use App\Models\UserNutrition;
+use App\Models\NutritionalPlan;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -31,9 +35,27 @@ class UserController extends Controller
        ]);
 
 
-       $user = User::create($validated);
+        $user = User::create($request->all());
+        $levelActivities = LevelActivity::all();
 
+        $sportActivity = SportActivity::with('tags')->get()->random();
+        $sportTag = $sportActivity->tags->random();
+        UserSport::factory()->create([
+            'id_user' => $user->id,
+            'id_level_activity' => $levelActivities->random()->id,
+            'id_sport_activity' => $sportActivity->id,
+            'id_sport_tag' => $sportTag->id,
+        ]);
 
+        $nutritionalPlan = NutritionalPlan::with('tags')->get()->random();
+        $nutritionalTag = $nutritionalPlan->tags->random();
+
+        UserNutrition::factory()->create([
+            'id_user' => $user->id,
+            'id_nutritional_plan' => $nutritionalPlan->id,
+            'id_nutritional_tag' => $nutritionalTag->id,
+        ]);
+        
        return response()->json($user, 201);
    }
 

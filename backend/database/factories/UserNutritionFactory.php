@@ -3,13 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\NutritionalPlan;
-use App\Models\NutritionalTag;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\UserNutrition>
- */
 class UserNutritionFactory extends Factory
 {
     /**
@@ -19,12 +15,14 @@ class UserNutritionFactory extends Factory
      */
     public function definition(): array
     {
-         return [
-        'id_user' => User::factory(),
-        'id_nutritional_plan' => NutritionalPlan::all()->random()->id,
-        'id_nutritional_tag' => NutritionalTag::all()->random()->id,
-        'created_date' => $this->faker->date(),
-        'updated_date' => $this->faker->date(),   
-    ];
+        $nutritionalPlan = NutritionalPlan::with('tags')->get()->random();
+
+        return [
+            'id_user' => User::factory(),
+            'id_nutritional_plan' => $nutritionalPlan->id,
+            'id_nutritional_tag' => $nutritionalPlan->tags->random()->id,
+            'created_date' => now(),
+            'updated_date' => now(),   
+        ];
     }
 }
