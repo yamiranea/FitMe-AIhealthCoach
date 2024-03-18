@@ -20,13 +20,16 @@ class UserSportFactory extends Factory
      */
     public function definition(): array
     {
+        $sportActivity = SportActivity::with('tags')->get()->random();
+        $sportTag = $sportActivity->tags->random();
+
         return [
-        'id_user' => User::factory(),
-        'id_level_activity' => LevelActivity::all()->random()->id,
-        'id_sport_activity' => SportActivity::all()->random()->id,
-        'id_sport_tag' => SportTag::all()->random()->id,
-        'created_date' => $this->faker->date(),
-        'updated_date' => $this->faker->date(),        
-    ];
+            'id_user' => User::factory(),
+            'id_level_activity' => LevelActivity::all()->random()->id,
+            'id_sport_activity' => $sportActivity->id,
+            'id_sport_tag' => $sportTag->id,
+            'created_date' => now(),
+            'updated_date' => now(),        
+        ];
     }
 }
