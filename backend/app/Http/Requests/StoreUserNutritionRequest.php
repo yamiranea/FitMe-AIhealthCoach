@@ -24,7 +24,6 @@ class StoreUserNutritionRequest extends FormRequest
         return [
             'id_user' => 'required|integer',
             'id_nutritional_plan' => 'required|integer',
-            'id_sport_activity' => 'required|integer',
             'id_nutritional_tag' => 'required|integer',
             'created_date' => 'required|date',
             'updated_date' => 'required|date',
