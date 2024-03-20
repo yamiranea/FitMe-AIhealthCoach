@@ -7,7 +7,9 @@ const Footer = () => {
         <div class="flex flex-row justify-between">
           <div class="mb-6 md:mb-0">
             <div className="flex flex-col">
-              <div className="text-lg text-white mb-6">Follow Us</div>
+              <div className="krona-one-regular text-lg text-white mb-6">
+                Follow Us
+              </div>
               <div class="flex sm:justify-center sm:mt-0">
                 <a
                   href="#"
@@ -28,10 +30,10 @@ const Footer = () => {
           </div>
           <div class="flex flex-col gap-8 sm:gap-6">
             <div className="flex flex-col">
-              <h2 class="mb-6 text-lg font-medium text-white hover:underline">
+              <h2 class="mb-6 text-lg font-medium text-white hover:underline krub-semibold">
                 About
               </h2>
-              <ul class="text-white text-lg font-medium">
+              <ul class="text-white text-lg font-medium krub-semibold">
                 <li class="mb-6">
                   <a href="#" class="hover:underline">
                     Privacy Policy
@@ -47,7 +49,7 @@ const Footer = () => {
           </div>
         </div>
         <div class="sm:flex sm:items-center sm:justify-between mt-8">
-          <span class="text-sm text-white sm:text-center dark:text-gray-400">
+          <span class="text-sm text-white sm:text-center dark:text-gray-400 krub-regular">
             © 2024 FitMe AI Coach. All Rights Reserved.
           </span>
         </div>

@@ -43,7 +43,7 @@ function Navbar() {
           className={`w-full md:block md:w-auto ${isOpen ? "" : "hidden"}`}
           id="navbar-default"
         >
-          <ul className="text-lg font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-14 rtl:space-x-reverse md:mt-0">
+          <ul className="text-base font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-14 rtl:space-x-reverse md:mt-0 krona-one-regular">
             <li>
               <a
                 href="#"
