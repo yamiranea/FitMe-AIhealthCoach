@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../Navbar/navbar.css";
 import FitMeLogo from "../../../assets/images/FitMeLogo.png";
 
@@ -12,7 +13,9 @@ function Navbar() {
   return (
     <nav className="w-auto main-blue">
       <div className="max-w-full flex flex-wrap items-center justify-between mx-6 p-4">
-        <img src={FitMeLogo} className="h-16" alt="Flowbite Logo" />
+        <Link to="/">
+          <img src={FitMeLogo} className="h-16" alt="FitMe Logo" />
+        </Link>
         <button
           onClick={toggleMenu}
           type="button"
