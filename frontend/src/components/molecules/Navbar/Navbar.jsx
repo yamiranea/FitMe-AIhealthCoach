@@ -10,7 +10,7 @@ function Navbar() {
   };
 
   return (
-    <nav className="w-auto main-blue">
+    <nav className="w-full main-blue fixed top-0 shadow-md z-10">
       <div className="max-w-full flex flex-wrap items-center justify-between mx-6 p-4">
         <Link to="/">
           <img src={FitMeLogo} className="h-16" alt="FitMe Logo" />
@@ -18,7 +18,7 @@ function Navbar() {
         <button
           onClick={toggleMenu}
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-red-400 rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-controls="navbar-default"
           aria-expanded="false"
         >

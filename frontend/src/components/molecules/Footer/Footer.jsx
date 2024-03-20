@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer class="main-blue dark:bg-gray-900">
+    <footer class="main-blue border-t border-white">
       <div class="mx-auto w-full max-w-full p-4 py-6 lg:py-8">
         <div class="flex flex-row justify-between">
           <div class="mb-6 md:mb-0">
@@ -46,8 +46,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <div class="sm:flex sm:items-center sm:justify-between">
+        <div class="sm:flex sm:items-center sm:justify-between mt-8">
           <span class="text-sm text-white sm:text-center dark:text-gray-400">
             © 2024 FitMe AI Coach. All Rights Reserved.
           </span>
