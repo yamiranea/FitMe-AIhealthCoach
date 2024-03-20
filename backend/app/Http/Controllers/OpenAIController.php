@@ -10,14 +10,14 @@ private $client;
 
 public function __construct()
 {
-    $this->client = OpenAI::client(getenv(''));
+    $this->client = OpenAI::client(env('OPENAI_API_KEY'));
 }
 
 
 public function sendMessage($message)
 {
     $result = $this->client->chat()->create([
-        'model' => 'gpt-4',
+        'model' => 'gpt-3.5',
         'messages' => [
             ['role' => 'user', 'content' => $message],
         ],
