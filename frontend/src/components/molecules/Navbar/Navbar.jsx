@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../Navbar/navbar.css";
 import FitMeLogo from "../../../assets/images/FitMeLogo.png";
 
 function Navbar() {
