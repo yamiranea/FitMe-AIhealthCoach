@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../components/atoms/Button/Button";
-import Gallery from "../components/atoms/Button/Gallery/Gallery";
+import Gallery from "../components/atoms/Gallery/Gallery";
 
 const HomePage = () => {
   return (
