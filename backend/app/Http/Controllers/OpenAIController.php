@@ -17,7 +17,7 @@ public function __construct()
 public function sendMessage($message)
 {
     $result = $this->client->chat()->create([
-        'model' => 'gpt-3.5',
+        'model' => 'gpt-4',
         'messages' => [
             ['role' => 'user', 'content' => $message],
         ],
