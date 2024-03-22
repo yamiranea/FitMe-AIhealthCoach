@@ -34,6 +34,7 @@ class SportPlanController extends Controller
 ]);
 
     $user = User::create($validated);
+    error_log('User ID: ' . $user->id);
 
     $gender = Gender::find($validated['id_gender']);
     $levelActivity = LevelActivity::find($validated['id_level_activity']);
@@ -60,6 +61,8 @@ class SportPlanController extends Controller
 
         $message = "Conviértete en mi coach deportivo experto y crea un plan deportivo para una persona de {$validated['age']} años, género {$gender->description}, peso actual {$validated['current_weight']}, altura {$validated['height']} con un nivel de actividad {$levelActivity->description} y el tipo de actividad deportiva deseada es {$sportActivity->description}. Por favor no incluyas encabezados, de saludo, solamente retorna el plan con la siguiente información: Objetivos del plan deportivo: 1,2,3,4 etc. Plan de entrenamiento (Frecuencia, Duración de las sesiones, Calentamiento, Entrenamiento, Enfriamiento. Consideraciones adicionales: 1,2,3... etc. También incluye el IMC. La información debe ser clara y precisa, presentada en formato de lista con viñetas y números para una lectura más fácil. Gracias.";
         $iaResponse = $this->openAIController->sendMessage($message);
+        
+        error_log('SportPlan data: ' . json_encode(['id_user' => $user->id, 'plan' => $iaResponse]));
 
         SportPlan::create([
             'id_user' => $user->id,
