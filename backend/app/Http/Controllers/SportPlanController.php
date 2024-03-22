@@ -96,22 +96,26 @@ class SportPlanController extends Controller
         return response()->json(['message' => 'Error al actualizar el plan deportivo: ' . $e->getMessage()], 500);
     }
 }
-
     public function deleteSportPlan($id)
     {
         try {
-        $user = User::find($id);
-        $userSport = UserSport::where('id_user', $user->id)->first();
-        $sportPlan = SportPlan::where('id_user', $user->id)->first();
+            $user = User::find($id);
+            $userSport = UserSport::where('id_user', $user->id)->first();
+            $sportPlan = SportPlan::where('id_user', $user->id)->first();
 
-        $user->delete();
-        $userSport->delete();
-        $sportPlan->delete();
+            if ($userSport) {
+                $userSport->delete();
+            }
+            if ($sportPlan) {
+                $sportPlan->delete();
+            }
 
-        return response()->json(['message' => 'Sport plan deleted successfully']);
+            $user->delete();
+
+            return response()->json(['message' => 'Sport plan deleted successfully']);
 
         } catch (\Exception $e) {
-        return response()->json(['message' => 'Error al eliminar el plan deportivo: ' . $e->getMessage()], 500);
+            return response()->json(['message' => 'Error al eliminar el plan deportivo: ' . $e->getMessage()], 500);
+        }
     }
-    }
-}
+} 
