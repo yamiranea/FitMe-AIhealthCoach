@@ -66,23 +66,7 @@ function Navbar() {
                 href="#"
                 className="block py-2 px-3 text-white rounded md:hover:text-red-400 md:p-0"
               >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-white rounded md:hover:text-red-400 md:p-0"
-              >
-                Pricing
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-white rounded md:hover:text-red-400 md:p-0"
-              >
-                Contact
+                Contacto
               </a>
             </li>
           </ul>
