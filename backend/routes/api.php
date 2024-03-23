@@ -3,6 +3,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserSportController;
 use App\Http\Controllers\UserNutritionController;
+use App\Http\Controllers\SportPlanController;
+
 
 Route::get('/users', [UserController::class, 'index']);
 Route::post('/users', [UserController::class, 'store']);
@@ -21,3 +23,7 @@ Route::post('/user_sports', [UserSportController::class, 'store']);
 Route::get('/user_sports/{id}', [UserSportController::class, 'show']);
 Route::put('/user_sports/{id}', [UserSportController::class, 'update']);
 Route::delete('/user_sports/{id}', [UserSportController::class, 'destroy']);
+
+Route::post('/sport_plan', [SportPlanController::class, 'createSportPlan']);
+Route::put('/users/{id}/sport_plan', [SportPlanController::class, 'updateSportPlan']);
+Route::delete('/users/{id}/sport_plan', [SportPlanController::class, 'deleteSportPlan']);
