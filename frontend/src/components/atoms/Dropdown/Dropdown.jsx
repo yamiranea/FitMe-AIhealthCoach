@@ -6,14 +6,14 @@ const Dropdown = () => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div className="mb-8 relative">
       <div>
         <button
           onClick={toggleOpen}
           id="dropdownHoverButton"
           data-dropdown-toggle="dropdownHover"
           data-dropdown-trigger="hover"
-          className="krub-regular text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-8 py-4 text-center inline-flex items-center"
+          className="krub-regular text-main-blue bg-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-4 py-2 text-center inline-flex items-center"
           type="button"
         >
           Selecciona una opción{" "}
@@ -37,19 +37,25 @@ const Dropdown = () => {
         {isOpen && (
           <div
             id="dropdownHover"
-            className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44"
+            className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-60 absolute"
           >
             <ul
-              className="py-2 text-lg text-gray-700 dark:text-gray-200"
+              className="py-2 text-lg text-gray-700"
               aria-labelledby="dropdownHoverButton"
             >
               <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                <a
+                  href="#"
+                  className="block px-8 py-2 hover:bg-red-400 hover:text-white"
+                >
                   NUTRICIONAL
                 </a>
               </li>
               <li>
-                <a href="#" className="block px-4 py-2 hover:bg-gray-100s">
+                <a
+                  href="#"
+                  className="block px-8 py-2 hover:bg-red-400 hover:text-white"
+                >
                   DEPORTIVO
                 </a>
               </li>

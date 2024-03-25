@@ -12,7 +12,7 @@ const HomePage = () => {
         <h2 className="krub-regular text-xl text-white mx-auto mb-8">
           Haz tu consulta personalizada
         </h2>
-        <Button />
+        <Button buttonText="Comenzar" />
       </div>
       <div>
         <Gallery />
