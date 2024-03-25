@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 
-const Dropdown = () => {
+const Dropdown = ({ setSelectedOption }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
+
+  const selectOption = (option) => {
+    setSelectedOption(option);
+    setIsOpen(false);
+  };
 
   return (
     <div className="mb-8 relative">
@@ -40,24 +45,24 @@ const Dropdown = () => {
             className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-60 absolute"
           >
             <ul
-              className="py-2 text-lg text-gray-700"
+              className="py-4 text-md text-main-blue"
               aria-labelledby="dropdownHoverButton"
             >
               <li>
-                <a
-                  href="#"
-                  className="block px-8 py-2 hover:bg-red-400 hover:text-white"
+                <button
+                  onClick={() => selectOption("NUTRICIONAL")}
+                  className="block w-full px-8 py-3 hover:bg-red-400 hover:text-white"
                 >
                   NUTRICIONAL
-                </a>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="block px-8 py-2 hover:bg-red-400 hover:text-white"
+                <button
+                  onClick={() => selectOption("DEPORTIVO")}
+                  className="block w-full px-8 py-3 hover:bg-red-400 hover:text-white"
                 >
                   DEPORTIVO
-                </a>
+                </button>
               </li>
             </ul>
           </div>
