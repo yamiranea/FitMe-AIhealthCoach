@@ -47,7 +47,7 @@ const Dropdown = ({ options, setSelectedOption }) => {
             className="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-60 absolute"
           >
             <ul
-              className="py-4 text-md text-main-blue"
+              className="py-4 text-md text-main-blue items-start"
               aria-labelledby="dropdownHoverButton"
             >
               {options.map((option) => (

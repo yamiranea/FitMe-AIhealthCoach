@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Dropdown from "../../atoms/Dropdown/Dropdown";
+import GenderDropdown from "../../atoms/GenderDropdown/GenderDropdown";
 
 const SportPlanForm = () => {
   const [age, setAge] = useState("");
@@ -51,7 +51,7 @@ const SportPlanForm = () => {
           />
           {error && <p className="text-red-400 mt-2">{error}</p>}
         </div>
-        <Dropdown />
+        <GenderDropdown />
 
         <div class="flex items-start mb-5">
           <div class="flex items-center h-5">

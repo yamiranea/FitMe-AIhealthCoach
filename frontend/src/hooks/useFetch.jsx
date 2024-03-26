@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
+const API_BASE_URL = "http://127.0.0.1:8000/api";
+
+const useFetch = (endpoint) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const getData = async (url) => {
+    const getData = async (endpoint) => {
       try {
-        let response = await fetch(url);
+        let response = await fetch(`${API_BASE_URL}${endpoint}`);
 
         if (!response.ok) {
           throw new Error(`Failed to fetch data. Status: ${response.status}`);
@@ -19,10 +21,10 @@ const useFetch = (url) => {
       }
     };
 
-    getData(url);
+    getData(endpoint);
 
     return () => {};
-  }, [url]);
+  }, [endpoint]);
 
   return { data };
 };
