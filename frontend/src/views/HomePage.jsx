@@ -1,8 +1,15 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/atoms/Button/Button";
 import Gallery from "../components/molecules/Gallery/Gallery";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  const goToSelectPlan = () => {
+    navigate("/selectplan");
+  };
+
   return (
     <>
       <div className="mt-44 flex flex-col items-center gap-3">
@@ -12,7 +19,7 @@ const HomePage = () => {
         <h2 className="krub-regular text-xl text-white mx-auto mb-8">
           Haz tu consulta personalizada
         </h2>
-        <Button />
+        <Button buttonText="Comenzar" onClick={goToSelectPlan} />
       </div>
       <div>
         <Gallery />
