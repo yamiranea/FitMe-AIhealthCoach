@@ -1,9 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\GenderController;
 use App\Http\Controllers\UserSportController;
 use App\Http\Controllers\UserNutritionController;
 use App\Http\Controllers\SportPlanController;
+
 
 
 Route::get('/users', [UserController::class, 'index']);
@@ -11,6 +13,8 @@ Route::post('/users', [UserController::class, 'store']);
 Route::get('/users/{id}', [UserController::class, 'show']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+Route::get('/genders', [GenderController::class, 'index']);
 
 Route::get('/user_nutritions', [UserNutritionController::class, 'index']);
 Route::post('/user_nutritions', [UserNutritionController::class, 'store']);
